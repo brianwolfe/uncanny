@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import Col from 'react-bootstrap/lib/Col';
+import Panel from 'react-bootstrap/lib/Panel';
 import Media from 'react-bootstrap/lib/Media';
 import Row from 'react-bootstrap/lib/Row';
 import ImagePanel from './ImagePanel';
@@ -15,19 +16,14 @@ class ImageRow extends React.Component {
     const minThreshold = Math.max(curThreshold - 50, 0);
 
     jsfeat.imgproc.canny(this.props.imageData, outputImage, minThreshold, curThreshold);
+    const caption = `Threshold: ${curThreshold}`;
 
     return (
-      <Media>
-        <Media.Left>
+      <Col md={3} xs={6}>
+        <Panel footer={caption} >
           <ImagePanel imageData={outputImage} threshold={curThreshold}/>
-        </Media.Left>
-        <Media.Body>
-          <ul>
-            <li> Min Threshold: {minThreshold} </li>
-            <li> Max Threshold: {curThreshold} </li>
-          </ul>
-        </Media.Body>
-      </Media>
+        </Panel>
+      </Col>
     );
   }
 }
@@ -35,7 +31,6 @@ class ImageRow extends React.Component {
 class ImagePanels extends React.Component {
   render() {
     const imageRows = [];
-    console.log(this.props.threshold);
     const maxThreshold = this.props.threshold;
 
     for ( let i = 0 ; i < this.props.numRows; i++) {
@@ -46,13 +41,14 @@ class ImagePanels extends React.Component {
                                imageData={this.props.imageData}/>)
     }
     return (
-      <div>
-        <Row>
-          <Col mdPush={2}>
+      <Row>
+        <Col md={1}/>
+        <Col md={10}>
+          <Row>
             {imageRows}
-          </Col>
-        </Row>
-      </div>
+          </Row>
+        </Col>
+      </Row>
     );
   }
 }

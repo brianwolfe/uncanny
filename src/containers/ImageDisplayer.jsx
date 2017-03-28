@@ -13,7 +13,6 @@ class ImageDisplayer extends React.Component {
     this.state = {
       threshold: 100,
       numRows: 3,
-      numCols: 3,
     };
   }
 
@@ -27,31 +26,31 @@ class ImageDisplayer extends React.Component {
 
   render() {
     return (
-      <div>
-        <ImagePanel imageData={this.props.imageData}/>
-        <Row>
-          <Col md={3}>
-            <label>
-              Example Count
-            </label>
-            <Slider onChange={(v) => {this.setNumber(v)}} min={1} max={6} step={1}/>
-          </Col>
-          <Col md={3}>
-            <label>
-              Threshold
-            </label>
-            <Slider onChange={(v) => {this.setThreshold(v)}} min={1} max={255} step={1}/>
-          </Col>
-        </Row>
-        <Row>
-          <Col mdPush={3}>
-        <ImagePanels numRows={this.state.numRows}
-                     numCols={this.state.numCols}
-                     threshold={this.state.threshold}
-                     imageData={this.props.imageData}/>
-          </Col>
-        </Row>
-      </div>
+      <Row>
+        <Col>
+          <Row>
+            <Col md={1}/>
+            <Col md={3}>
+              <ImagePanel imageData={this.props.imageData}/>
+            </Col>
+            <Col md={3}>
+              <label>
+                Example Count
+              </label>
+              <Slider onChange={(v) => {this.setNumber(v)}} min={1} max={6} step={1} defaultValue={this.state.numRows}/>
+            </Col>
+            <Col md={3}>
+              <label>
+                Threshold
+              </label>
+              <Slider onChange={(v) => {this.setThreshold(v)}} min={1} max={255} step={1} defaultValue={this.state.threshold}/>
+            </Col>
+          </Row>
+          <ImagePanels numRows={this.state.numRows}
+                       threshold={this.state.threshold}
+                       imageData={this.props.imageData}/>
+        </Col>
+      </Row>
     );
   }
 }
