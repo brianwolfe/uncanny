@@ -1,0 +1,39 @@
+{
+  "name": "uncanny",
+  "version": "1.0.0",
+  "description": "Making an interactive uncanny edge detector.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "webpack": "node_modules/webpack/bin/webpack.js",
+    "dev-server": "node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianwolfe/uncanny.git"
+  },
+  "author": "Brian Wolfe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brianwolfe/uncanny/issues"
+  },
+  "homepage": "https://github.com/brianwolfe/uncanny#readme",
+  "devDependencies": {
+    "babel-core": "6.24.0",
+    "babel-loader": "6.4.1",
+    "babel-preset-latest": "6.24.0",
+    "babel-preset-react": "6.23.0",
+    "babel-preset-stage-2": "6.22.0",
+    "css-loader": "0.27.3",
+    "style-loader": "0.16.0",
+    "webpack": "2.3.2",
+    "webpack-dev-server": "2.4.2"
+  },
+  "dependencies": {
+    "jsfeat": "0.0.8",
+    "rc-slider": "6.3.1",
+    "react": "15.4.2",
+    "react-bootstrap": "0.30.8",
+    "react-dom": "15.4.2"
+  }
+}
